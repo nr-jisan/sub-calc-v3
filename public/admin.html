@@ -93,6 +93,15 @@
   </style>
 </head>
 <body>
+    <script>
+    const adminPassword = "sub@026323030"; // same as your backend password
+
+    const userPassword = prompt("Enter Admin Password:");
+    if (userPassword !== adminPassword) {
+      alert("Incorrect password!");
+      window.location.href = "/";
+    }
+  </script>
   <div class="admin-container">
     <h2>🎓 Admin Panel: Tuition + Waiver Configuration</h2>
 

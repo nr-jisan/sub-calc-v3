@@ -5,38 +5,13 @@ const path = require("path");
 
 const app = express();
 const port = 3000;
-const PASSWORD = "sub@6323030"; // Admin password
+const PASSWORD = "sub@6323030"; // 🔐 Change this to your secure password
 
+// Serve files from the public folder
+app.use(express.static("public"));
 app.use(bodyParser.json());
 
-// 👉 Serve everything from public except /admin.html
-app.use(express.static("public", {
-  index: "index.html",
-  extensions: ["html"],
-  setHeaders: (res, filePath) => {
-    if (filePath.endsWith("admin.html")) {
-      // Prevent browser from accessing admin.html directly
-      res.status(403).end("Forbidden");
-    }
-  }
-}));
-
-// 🔐 Protect /admin route with Basic Auth
-app.get("/admin", (req, res) => {
-  const auth = { login: "admin", password: PASSWORD };
-
-  const b64auth = (req.headers.authorization || "").split(" ")[1] || "";
-  const [login, password] = Buffer.from(b64auth, "base64").toString().split(":");
-
-  if (login === auth.login && password === auth.password) {
-    return res.sendFile(path.join(__dirname, "public", "admin.html"));
-  }
-
-  res.set("WWW-Authenticate", 'Basic realm="Admin Area"');
-  res.status(401).send("Authentication required.");
-});
-
-// Config API
+// API: Load config
 app.get("/config", (req, res) => {
   const filePath = path.join(__dirname, "config.json");
   fs.readFile(filePath, "utf8", (err, data) => {
@@ -45,6 +20,7 @@ app.get("/config", (req, res) => {
   });
 });
 
+// API: Save config (requires password)
 app.post("/config", (req, res) => {
   if (req.body.password !== PASSWORD) {
     return res.status(401).send("Unauthorized");
@@ -57,9 +33,13 @@ app.post("/config", (req, res) => {
   });
 });
 
-// Serve homepage
+// Optional: Clean routes for "/" and "/admin"
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public/index.html"));
+});
+
+app.get("/admin", (req, res) => {
+  res.sendFile(path.join(__dirname, "public/admin.html"));
 });
 
 app.listen(port, () => {
