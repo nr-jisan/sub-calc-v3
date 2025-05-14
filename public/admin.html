@@ -172,6 +172,10 @@
     function loadDepartments() {
       const group = document.getElementById("groupType").value;
       currentGroup = group;
+      updateWaiverTypes();
+      document.getElementById("waiverType").value = currentGroup === "diplomaDepartments" ? "diploma" : "national";
+      loadWaiverRules();
+
       const deptSelect = document.getElementById("department");
       deptSelect.innerHTML = "";
       for (const d in config[group]) {
@@ -183,6 +187,26 @@
       deptSelect.onchange = fillForm;
       fillForm();
     }
+    function updateWaiverTypes() {
+      const waiverSelect = document.getElementById("waiverType");
+      waiverSelect.innerHTML = "";
+
+      if (currentGroup === "nationalDepartments") {
+        ["national", "olevel"].forEach(type => {
+          const opt = document.createElement("option");
+          opt.value = type;
+          opt.textContent = type.charAt(0).toUpperCase() + type.slice(1);
+          waiverSelect.appendChild(opt);
+        });
+      } else if (currentGroup === "diplomaDepartments") {
+        const opt = document.createElement("option");
+        opt.value = "diploma";
+        opt.textContent = "Diploma";
+        waiverSelect.appendChild(opt);
+      }
+    }
+
+
 
     function fillForm() {
       const dept = document.getElementById("department").value;

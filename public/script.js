@@ -159,19 +159,20 @@ form.addEventListener("submit", e => {
   const gender = form.gender.value;
   let cfg = null, w = 0;
 
-  if (admissionType === "diploma") {
-    const cgpa = parseFloat(diplomaCgpaInput.value);
-    if (isNaN(cgpa)) return alert("Enter your Diploma CGPA.");
-    if (cgpa < 2.5) {
-      resultCard.innerHTML = `<strong>Ineligible.</strong><br>Minimum CGPA of 2.50 is required for Diploma admission.`;
-      resultSection.classList.remove("hidden");
-      return;
-    }
-    cfg = diplomaDepartments[dept];
-    const rules = cfg.waiverRules?.diploma || [];
-    w = getWaiverFromRules(rules, { minCgpa: cgpa });
+if (admissionType === "diploma") {
+  const cgpa = parseFloat(diplomaCgpaInput.value);
+  if (isNaN(cgpa)) return alert("Enter your Diploma CGPA.");
+  if (cgpa < 2.5) {
+    resultCard.innerHTML = `<strong>Ineligible.</strong><br>Minimum CGPA of 2.50 is required for Diploma admission.`;
+    resultSection.classList.remove("hidden");
+    return;
+  }
 
-  } else if (admissionType === "olevel") {
+  cfg = diplomaDepartments[dept];
+  const rules = cfg.waiverRules?.diploma || [];
+  w = getWaiverFromRules(rules, { cgpa });
+}
+ else if (admissionType === "olevel") {
     const oGrades = Array.from(document.querySelectorAll(".olevel-grade")).map(sel => sel.value.toUpperCase());
     const aGrades = Array.from(document.querySelectorAll(".alevel-grade")).map(sel => sel.value.toUpperCase());
     const allGrades = [...oGrades, ...aGrades];
