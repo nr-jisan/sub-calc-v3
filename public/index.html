@@ -99,21 +99,45 @@
   </section>
 
   <footer>
-    &copy; 2025 Md. Naimur Rahman Jisan | CSE | SUB
+    &copy; 2025 Developed By Md. Naimur Rahman Jisan | Department Of CSE | State University Of Bangladesh | All Rights Reserved
     <br>
     <button onclick="accessAdmin()" id="adminBtn" title="Admin Access"> ⚙️ </button>
   </footer>
+    <div id="adminModal" class="modal hidden">
+    <div class="modal-content">
+      <h3>🔐 Admin Access</h3>
+      <input type="password" id="adminPasswordInput" placeholder="Enter admin password..." />
+      <div class="modal-actions">
+        <button onclick="checkAdminPassword()">Login</button>
+        <button onclick="closeAdminModal()">Cancel</button>
+      </div>
+      <p id="adminError" class="error-message"></p>
+    </div>
+  </div>
 
   <script>
     function accessAdmin() {
-      const pass = prompt("Enter Admin Password:");
-      if (pass === "admin123") {
+      document.getElementById("adminModal").classList.remove("hidden");
+      document.getElementById("adminPasswordInput").focus();
+      document.getElementById("adminError").textContent = "";
+    }
+
+    function closeAdminModal() {
+      document.getElementById("adminModal").classList.add("hidden");
+      document.getElementById("adminPasswordInput").value = "";
+      document.getElementById("adminError").textContent = "";
+    }
+
+    function checkAdminPassword() {
+      const password = document.getElementById("adminPasswordInput").value;
+      if (password === "sub@6323030") {
         window.location.href = "/admin";
-      } else if (pass !== null) {
-        alert("Access Denied");
+      } else {
+        document.getElementById("adminError").textContent = "❌ Wrong password. Try again.";
       }
     }
   </script>
+
 
   <script src="script.js"></script>
 </body>

@@ -111,6 +111,13 @@
     <label for="costPerCredit">💵 Cost Per Credit:</label>
     <input type="number" id="costPerCredit" />
 
+    <label for="admissionFee">📥 Admission Fee:</label>
+    <input type="number" id="admissionFee" />
+
+    <label for="ethicsFee">📘 Ethics Fee:</label>
+    <input type="number" id="ethicsFee" />
+
+
     <label for="flatWeiver">🏅 Flat Waiver (e.g., 0.15 = 15%):</label>
     <input type="number" step="0.01" id="flatWeiver" />
 
@@ -148,7 +155,7 @@
   </div>
 
   <div class="footer">
-    &copy; 2025 Md. Naimur Rahman Jisan | State University of Bangladesh
+    &copy; 2025 Developed By Md. Naimur Rahman Jisan | Department Of CSE | State University Of Bangladesh | All Rights Reserved
   </div>
 
   <script>
@@ -181,6 +188,9 @@
       const dept = document.getElementById("department").value;
       currentDept = dept;
       const d = config[currentGroup][dept];
+      ["admissionFee", "ethicsFee"].forEach(id => {
+        document.getElementById(id).value = d[id] || 0;
+      });
       ["totalCredit", "costPerCredit", "flatWeiver", "semesters", "durationYears", "regPerSem", "devPerSem", "labPerSem"]
         .forEach(id => document.getElementById(id).value = d[id]);
       loadWaiverRules();
@@ -222,6 +232,9 @@
 
     async function save() {
       const d = config[currentGroup][currentDept];
+      ["admissionFee", "ethicsFee"].forEach(id => {
+        d[id] = parseFloat(document.getElementById(id).value);
+      });
       ["totalCredit", "costPerCredit", "flatWeiver", "semesters", "durationYears", "regPerSem", "devPerSem", "labPerSem"]
         .forEach(id => d[id] = parseFloat(document.getElementById(id).value));
 

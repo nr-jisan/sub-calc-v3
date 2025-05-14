@@ -1,14 +1,16 @@
 {
   "nationalDepartments": {
     "architecture": {
-      "totalCredit": 180,
+      "totalCredit": 190,
       "costPerCredit": 3500,
       "flatWeiver": 0.1,
-      "semesters": 12,
+      "semesters": 10,
       "durationYears": 5,
       "regPerSem": 15000,
       "devPerSem": 6000,
       "labPerSem": 0,
+      "admissionFee": 25000,
+      "ethicsFee": 2000,
       "waiverRules": {
         "national": [
           {
@@ -19,9 +21,33 @@
             "waiver": 0.75
           },
           {
+            "minHsc": 5,
+            "goldenHsc": true,
+            "waiver": 0.65
+          },
+          {
+            "minHsc": 5,
+            "minSsc": 5,
+            "waiver": 0.6
+          },
+          {
+            "minHsc": 5,
+            "waiver": 0.5
+          },
+          {
             "minHsc": 4.8,
             "maxHsc": 4.99,
-            "waiver": 0.68
+            "waiver": 0.35
+          },
+          {
+            "minHsc": 4.5,
+            "maxHsc": 4.79,
+            "waiver": 0.25
+          },
+          {
+            "minHsc": 4,
+            "maxHsc": 4.49,
+            "waiver": 0.15
           }
         ],
         "olevel": [
@@ -29,6 +55,21 @@
             "olevelAs": 5,
             "alevelAs": 2,
             "waiver": 0.5
+          },
+          {
+            "olevelAs": 5,
+            "alevelAs": 1,
+            "alevelBs": 1,
+            "waiver": 0.5
+          },
+          {
+            "olevelAs": 5,
+            "alevelBs": 2,
+            "waiver": 0.4
+          },
+          {
+            "olevelAs": 4,
+            "waiver": 0.25
           }
         ]
       }
@@ -42,14 +83,64 @@
       "regPerSem": 10000,
       "devPerSem": 4000,
       "labPerSem": 0,
+      "admissionFee": 25000,
+      "ethicsFee": 2000,
       "waiverRules": {
         "national": [
           {
+            "minHsc": 5,
+            "minSsc": 5,
+            "goldenHsc": true,
+            "goldenSsc": true,
+            "waiver": 0.75
+          },
+          {
+            "minHsc": 5,
+            "goldenHsc": true,
+            "waiver": 0.65
+          },
+          {
+            "minHsc": 5,
+            "minSsc": 5,
+            "waiver": 0.6
+          },
+          {
+            "minHsc": 5,
+            "waiver": 0.5
+          },
+          {
             "minHsc": 4.8,
-            "waiver": 0.3
+            "maxHsc": 4.99,
+            "waiver": 0.35
+          },
+          {
+            "minHsc": 4.5,
+            "maxHsc": 4.79,
+            "waiver": 0.25
+          },
+          {
+            "minHsc": 4,
+            "maxHsc": 4.49,
+            "waiver": 0.15
           }
         ],
         "olevel": [
+          {
+            "olevelAs": 5,
+            "alevelAs": 2,
+            "waiver": 0.5
+          },
+          {
+            "olevelAs": 5,
+            "alevelAs": 1,
+            "alevelBs": 1,
+            "waiver": 0.5
+          },
+          {
+            "olevelAs": 5,
+            "alevelBs": 2,
+            "waiver": 0.4
+          },
           {
             "olevelAs": 4,
             "waiver": 0.25
@@ -66,20 +157,45 @@
       "regPerSem": 10000,
       "devPerSem": 4000,
       "labPerSem": 3500,
+      "admissionFee": 25000,
+      "ethicsFee": 2000,
       "waiverRules": {
         "national": [
+          {
+            "minHsc": 5,
+            "minSsc": 5,
+            "goldenHsc": true,
+            "goldenSsc": true,
+            "waiver": 0.75
+          },
           {
             "minHsc": 5,
             "goldenHsc": true,
             "waiver": 0.65
           },
           {
+            "minHsc": 5,
+            "minSsc": 5,
+            "waiver": 0.6
+          },
+          {
+            "minHsc": 5,
+            "waiver": 0.5
+          },
+          {
+            "minHsc": 4.8,
+            "maxHsc": 4.99,
+            "waiver": 0.35
+          },
+          {
             "minHsc": 4.5,
+            "maxHsc": 4.79,
             "waiver": 0.25
           },
           {
-            "minHsc": 4.7,
-            "waiver": 0.69
+            "minHsc": 4,
+            "maxHsc": 4.49,
+            "waiver": 0.15
           }
         ],
         "olevel": [
@@ -87,6 +203,17 @@
             "olevelAs": 5,
             "alevelAs": 2,
             "waiver": 0.5
+          },
+          {
+            "olevelAs": 5,
+            "alevelAs": 1,
+            "alevelBs": 1,
+            "waiver": 0.5
+          },
+          {
+            "olevelAs": 5,
+            "alevelBs": 2,
+            "waiver": 0.4
           },
           {
             "olevelAs": 4,
@@ -104,11 +231,67 @@
       "regPerSem": 10000,
       "devPerSem": 4000,
       "labPerSem": 0,
+      "admissionFee": 25000,
+      "ethicsFee": 2000,
       "waiverRules": {
         "national": [
           {
+            "minHsc": 5,
+            "minSsc": 5,
+            "goldenHsc": true,
+            "goldenSsc": true,
+            "waiver": 0.75
+          },
+          {
+            "minHsc": 5,
+            "goldenHsc": true,
+            "waiver": 0.65
+          },
+          {
+            "minHsc": 5,
+            "minSsc": 5,
+            "waiver": 0.6
+          },
+          {
+            "minHsc": 5,
+            "waiver": 0.5
+          },
+          {
+            "minHsc": 4.8,
+            "maxHsc": 4.99,
+            "waiver": 0.35
+          },
+          {
             "minHsc": 4.5,
-            "waiver": 0.2
+            "maxHsc": 4.79,
+            "waiver": 0.25
+          },
+          {
+            "minHsc": 4,
+            "maxHsc": 4.49,
+            "waiver": 0.15
+          }
+        ],
+        "olevel": [
+          {
+            "olevelAs": 5,
+            "alevelAs": 2,
+            "waiver": 0.5
+          },
+          {
+            "olevelAs": 5,
+            "alevelAs": 1,
+            "alevelBs": 1,
+            "waiver": 0.5
+          },
+          {
+            "olevelAs": 5,
+            "alevelBs": 2,
+            "waiver": 0.4
+          },
+          {
+            "olevelAs": 4,
+            "waiver": 0.25
           }
         ]
       }
@@ -122,14 +305,64 @@
       "regPerSem": 10000,
       "devPerSem": 4000,
       "labPerSem": 3500,
+      "admissionFee": 25000,
+      "ethicsFee": 2000,
       "waiverRules": {
         "national": [
           {
+            "minHsc": 5,
+            "minSsc": 5,
+            "goldenHsc": true,
+            "goldenSsc": true,
+            "waiver": 0.75
+          },
+          {
+            "minHsc": 5,
+            "goldenHsc": true,
+            "waiver": 0.65
+          },
+          {
+            "minHsc": 5,
+            "minSsc": 5,
+            "waiver": 0.6
+          },
+          {
+            "minHsc": 5,
+            "waiver": 0.5
+          },
+          {
             "minHsc": 4.8,
-            "waiver": 0.3
+            "maxHsc": 4.99,
+            "waiver": 0.35
+          },
+          {
+            "minHsc": 4.5,
+            "maxHsc": 4.79,
+            "waiver": 0.25
+          },
+          {
+            "minHsc": 4,
+            "maxHsc": 4.49,
+            "waiver": 0.15
           }
         ],
         "olevel": [
+          {
+            "olevelAs": 5,
+            "alevelAs": 2,
+            "waiver": 0.5
+          },
+          {
+            "olevelAs": 5,
+            "alevelAs": 1,
+            "alevelBs": 1,
+            "waiver": 0.5
+          },
+          {
+            "olevelAs": 5,
+            "alevelBs": 2,
+            "waiver": 0.4
+          },
           {
             "olevelAs": 4,
             "waiver": 0.25
@@ -145,7 +378,71 @@
       "durationYears": 4,
       "regPerSem": 10000,
       "devPerSem": 4000,
-      "labPerSem": 3500
+      "labPerSem": 3500,
+      "admissionFee": 25000,
+      "ethicsFee": 2000,
+      "waiverRules": {
+        "national": [
+          {
+            "minHsc": 5,
+            "minSsc": 5,
+            "goldenHsc": true,
+            "goldenSsc": true,
+            "waiver": 0.75
+          },
+          {
+            "minHsc": 5,
+            "goldenHsc": true,
+            "waiver": 0.65
+          },
+          {
+            "minHsc": 5,
+            "minSsc": 5,
+            "waiver": 0.6
+          },
+          {
+            "minHsc": 5,
+            "waiver": 0.5
+          },
+          {
+            "minHsc": 4.8,
+            "maxHsc": 4.99,
+            "waiver": 0.35
+          },
+          {
+            "minHsc": 4.5,
+            "maxHsc": 4.79,
+            "waiver": 0.25
+          },
+          {
+            "minHsc": 4,
+            "maxHsc": 4.49,
+            "waiver": 0.15
+          }
+        ],
+        "olevel": [
+          {
+            "olevelAs": 5,
+            "alevelAs": 2,
+            "waiver": 0.5
+          },
+          {
+            "olevelAs": 5,
+            "alevelAs": 1,
+            "alevelBs": 1,
+            "waiver": 0.5
+          },
+          {
+            "olevelAs": 5,
+            "alevelBs": 2,
+            "waiver": 0.4
+          },
+          {
+            "olevelAs": 4,
+            "waiver": 0.25
+          }
+        ]
+      }
     },
     "law": {
       "totalCredit": 140,
@@ -155,7 +452,71 @@
       "durationYears": 4,
       "regPerSem": 15000,
       "devPerSem": 6000,
-      "labPerSem": 0
+      "labPerSem": 0,
+      "admissionFee": 25000,
+      "ethicsFee": 2000,
+      "waiverRules": {
+        "national": [
+          {
+            "minHsc": 5,
+            "minSsc": 5,
+            "goldenHsc": true,
+            "goldenSsc": true,
+            "waiver": 0.75
+          },
+          {
+            "minHsc": 5,
+            "goldenHsc": true,
+            "waiver": 0.65
+          },
+          {
+            "minHsc": 5,
+            "minSsc": 5,
+            "waiver": 0.6
+          },
+          {
+            "minHsc": 5,
+            "waiver": 0.5
+          },
+          {
+            "minHsc": 4.8,
+            "maxHsc": 4.99,
+            "waiver": 0.35
+          },
+          {
+            "minHsc": 4.5,
+            "maxHsc": 4.79,
+            "waiver": 0.25
+          },
+          {
+            "minHsc": 4,
+            "maxHsc": 4.49,
+            "waiver": 0.15
+          }
+        ],
+        "olevel": [
+          {
+            "olevelAs": 5,
+            "alevelAs": 2,
+            "waiver": 0.5
+          },
+          {
+            "olevelAs": 5,
+            "alevelAs": 1,
+            "alevelBs": 1,
+            "waiver": 0.5
+          },
+          {
+            "olevelAs": 5,
+            "alevelBs": 2,
+            "waiver": 0.4
+          },
+          {
+            "olevelAs": 4,
+            "waiver": 0.25
+          }
+        ]
+      }
     },
     "pharmacy": {
       "totalCredit": 164,
@@ -166,23 +527,67 @@
       "regPerSem": 15000,
       "devPerSem": 6000,
       "labPerSem": 7000,
+      "admissionFee": 25000,
+      "ethicsFee": 2000,
       "waiverRules": {
         "national": [
+          {
+            "minHsc": 5,
+            "minSsc": 5,
+            "goldenHsc": true,
+            "goldenSsc": true,
+            "waiver": 0.75
+          },
+          {
+            "minHsc": 5,
+            "goldenHsc": true,
+            "waiver": 0.6
+          },
           {
             "minHsc": 5,
             "minSsc": 5,
             "waiver": 0.5
           },
           {
+            "minHsc": 5,
+            "waiver": 0.4
+          },
+          {
+            "minHsc": 4.8,
+            "maxHsc": 4.99,
+            "waiver": 0.25
+          },
+          {
             "minHsc": 4.5,
+            "maxHsc": 4.79,
             "waiver": 0.2
+          },
+          {
+            "minHsc": 4.25,
+            "maxHsc": 4.49,
+            "waiver": 0.05
           }
         ],
         "olevel": [
           {
             "olevelAs": 5,
+            "alevelAs": 2,
+            "waiver": 0.5
+          },
+          {
+            "olevelAs": 5,
+            "alevelAs": 1,
+            "alevelBs": 1,
+            "waiver": 0.5
+          },
+          {
+            "olevelAs": 5,
             "alevelBs": 2,
             "waiver": 0.4
+          },
+          {
+            "olevelAs": 4,
+            "waiver": 0.25
           }
         ]
       }
@@ -198,6 +603,8 @@
       "regPerSem": 15000,
       "devPerSem": 6000,
       "labPerSem": 0,
+      "admissionFee": 25000,
+      "ethicsFee": 2000,
       "waiverRules": {
         "diploma": [
           {
@@ -206,7 +613,13 @@
           },
           {
             "minCgpa": 3.5,
+            "maxCgpa": 3.79,
             "waiver": 0.2
+          },
+          {
+            "minCgpa": 3,
+            "maxCgpa": 3.49,
+            "waiver": 0.1
           }
         ]
       }
@@ -220,6 +633,8 @@
       "regPerSem": 10000,
       "devPerSem": 4000,
       "labPerSem": 3500,
+      "admissionFee": 25000,
+      "ethicsFee": 2000,
       "waiverRules": {
         "diploma": [
           {
@@ -228,10 +643,12 @@
           },
           {
             "minCgpa": 3.5,
+            "maxCgpa": 3.79,
             "waiver": 0.2
           },
           {
             "minCgpa": 3,
+            "maxCgpa": 3.49,
             "waiver": 0.1
           }
         ]
@@ -246,11 +663,23 @@
       "regPerSem": 10000,
       "devPerSem": 4000,
       "labPerSem": 3500,
+      "admissionFee": 25000,
+      "ethicsFee": 2000,
       "waiverRules": {
         "diploma": [
           {
-            "minCgpa": 3.7,
-            "waiver": 0.25
+            "minCgpa": 3.8,
+            "waiver": 0.3
+          },
+          {
+            "minCgpa": 3.5,
+            "maxCgpa": 3.79,
+            "waiver": 0.2
+          },
+          {
+            "minCgpa": 3,
+            "maxCgpa": 3.49,
+            "waiver": 0.1
           }
         ]
       }

@@ -228,44 +228,44 @@ form.addEventListener("submit", e => {
     cfg.regPerSem * cfg.semesters +
     cfg.devPerSem * cfg.semesters +
     cfg.labPerSem * cfg.semesters +
-    25000 + 2000
+    cfg.admissionFee + cfg.ethicsFee
   );
   const totalSemesterCost = Math.round(tuitionPerSem + cfg.regPerSem + cfg.devPerSem + cfg.labPerSem);
 
   resultCard.innerHTML = `
-    <div class="department-info">
-      <h3 class="department-heading">Department Of ${dept.toUpperCase()}</h3>
-      <p><strong>Total Credit:</strong> ${cfg.totalCredit}</p>
-      <p><strong>Per Credit Fee:</strong> ${cfg.costPerCredit.toLocaleString()} BDT</p>
-      <p><strong>Total Semester:</strong> ${cfg.semesters}</p>
-      <p><strong>Flat Waiver:</strong> ${(cfg.flatWeiver * 100).toFixed(0)}%</p>
-      <br>
-      <p><strong>Base Tuition After Flat Waiver (${cfg.durationYears} years):<br></strong> ${cfg.baseTuition.toLocaleString()} BDT</p>
-      <p><strong>Waiver Applied:</strong> ${(w * 100).toFixed(0)}%${gender === "female" ? " +10% female" : ""}</p>
-    </div>
+  <div class="department-info">
+    <h3 class="department-heading">Department of ${dept.toUpperCase()}</h3>
+    <p><strong>Total Credit:</strong> ${cfg.totalCredit}</p>
+    <p><strong>Per Credit Fee:</strong> ${cfg.costPerCredit.toLocaleString()} BDT</p>
+    <p><strong>Total Semester:</strong> ${cfg.semesters}</p>
+    <p><strong>Flat Waiver:</strong> ${(cfg.flatWeiver * 100).toFixed(0)}%</p>
+    <br>
+    <p><strong>Base Tuition After Flat Waiver (${cfg.durationYears} year):<br></strong> ${cfg.baseTuition.toLocaleString()} BDT</p>
+    <p><strong>Total Waiver:</strong> ${(w * 100).toFixed(0)}%${gender === "female" ? " +10% female" : ""}</p>
+  </div>
+  <hr>
+  <h3>Semester Breakdown <br> (Avarage Cost Each Semester):</h3>
+  <div class="semester-fees">
+    <p><strong>Tuition Fees (Avg):<br></strong> ${tuitionPerSem.toLocaleString()} BDT</p>
+    <p><strong>Registration Fee:<br></strong> ${cfg.regPerSem.toLocaleString()} BDT</p>
+    <p><strong>Development Fees:<br></strong> ${cfg.devPerSem.toLocaleString()} BDT</p>
+    <p><strong>Lab Fee:<br></strong> ${cfg.labPerSem.toLocaleString()} BDT</p>
     <hr>
-    <h3>Semester Breakdown (Avg):</h3>
-    <div class="semester-fees">
-      <p><strong>Tuition:</strong> ${tuitionPerSem.toLocaleString()} BDT</p>
-      <p><strong>Reg Fee:</strong> ${cfg.regPerSem.toLocaleString()} BDT</p>
-      <p><strong>Dev Fee:</strong> ${cfg.devPerSem.toLocaleString()} BDT</p>
-      <p><strong>Lab Fee:</strong> ${cfg.labPerSem.toLocaleString()} BDT</p>
-      <hr>
-      <h3>Total: ${totalSemesterCost.toLocaleString()} BDT</h3>
-    </div>
+    <h3 style="color:DarkSlateGray;"><strong>Total (Avg):</strong> ${totalSemesterCost.toLocaleString()} BDT</h3>
+  </div>
+  <hr>
+  <h3>Total Fee Breakdown (${cfg.durationYears} year):</h3>
+  <div class="total-costs">
+    <p><strong>Admission Fee:</strong> ${cfg.admissionFee.toLocaleString()} BDT</p>
+    <p><strong>Ethics Fee:</strong> ${cfg.ethicsFee.toLocaleString()} BDT</p>
+    <p><strong>Registration Fees (${cfg.durationYears} year):<br></strong> ${(cfg.regPerSem * cfg.semesters).toLocaleString()} BDT</p>
+    <p><strong>Development Fees (${cfg.durationYears} year):<br></strong> ${(cfg.devPerSem * cfg.semesters).toLocaleString()} BDT</p>
+    <p><strong>Lab Fees(${cfg.durationYears} year):</strong><br> ${(cfg.labPerSem * cfg.semesters).toLocaleString()} BDT</p>
+    <p><strong>Base Tuition Fees (${cfg.durationYears} year):</strong><br> ${cfg.baseTuition.toLocaleString()} BDT</p>
     <hr>
-    <h3>Total Fee (${cfg.durationYears} years):</h3>
-    <div class="total-costs">
-      <p><strong>Admission:</strong> 25,000 BDT</p>
-      <p><strong>Ethics:</strong> 2,000 BDT</p>
-      <p><strong>Tuition:</strong> ${cfg.baseTuition.toLocaleString()} BDT</p>
-      <p><strong>Reg Fees:</strong> ${(cfg.regPerSem * cfg.semesters).toLocaleString()} BDT</p>
-      <p><strong>Dev Fees:</strong> ${(cfg.devPerSem * cfg.semesters).toLocaleString()} BDT</p>
-      <p><strong>Lab Fees:</strong> ${(cfg.labPerSem * cfg.semesters).toLocaleString()} BDT</p>
-      <hr>
-      <h1 style="color:green;">Total: ${totalCostAfterWaiver.toLocaleString()} BDT</h1>
-    </div>
-  `;
+    <p><strong>Total Cost After Waiver (${cfg.durationYears} year):</strong><br><h1 style="color:green;">${totalCostAfterWaiver.toLocaleString()} BDT</h1></p>
+  </div>
+`;
 
   resultSection.classList.remove("hidden");
   resultSection.scrollIntoView({ behavior: "smooth" });
