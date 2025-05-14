@@ -100,46 +100,9 @@
     <footer>
         <div>
           &copy; 2025 Developed By Md. Naimur Rahman Jisan | Department Of CSE | State University Of Bangladesh | All Rights Reserved
-          <button id="adminBtn" onclick="accessAdmin()">•••</button>
+          <button id="adminBtn" onclick="window.location.href='/admin'">•••</button>
         </div>
     </footer>
-
-    <div id="adminModal" class="modal hidden">
-    <div class="modal-content">
-      <h3>🔐 Admin Access</h3>
-      <input type="password" id="adminPasswordInput" placeholder="Enter admin password..." />
-      <div class="modal-actions">
-        <button onclick="checkAdminPassword()">Login</button>
-        <button onclick="closeAdminModal()">Cancel</button>
-      </div>
-      <p id="adminError" class="error-message"></p>
-    </div>
-  </div>
-
-  <script>
-    function accessAdmin() {
-      document.getElementById("adminModal").classList.remove("hidden");
-      document.getElementById("adminPasswordInput").focus();
-      document.getElementById("adminError").textContent = "";
-    }
-
-    function closeAdminModal() {
-      document.getElementById("adminModal").classList.add("hidden");
-      document.getElementById("adminPasswordInput").value = "";
-      document.getElementById("adminError").textContent = "";
-    }
-
-    function checkAdminPassword() {
-      const password = document.getElementById("adminPasswordInput").value;
-      if (password === "sub@6323030") {
-        window.location.href = "/admin";
-      } else {
-        document.getElementById("adminError").textContent = "❌ Wrong password. Try again.";
-      }
-    }
-  </script>
-
-
   <script src="script.js"></script>
 </body>
 </html>
