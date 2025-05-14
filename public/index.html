@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Tuition Fee Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <img src="assets/logo.png" alt="University Logo" class="logo"/>
+    <h1>Tuition Fees Calculator For Undergraduate Program</h1>
+  </header>
+
+  <section>
+    <h2>Enter Your Details</h2>
+    <form id="feeForm">
+      <!-- Admission Type -->
+      <label for="admissionType">Select Admission Type:</label>
+      <select id="admissionType" required>
+        <option value="national">Undergraduate (National Curriculum)</option>
+        <option value="diploma">Undergraduate (Diploma Holder)</option>
+        <option value="olevel">Undergraduate (A/O Level)</option>
+      </select>
+
+      <!-- National Curriculum GPA -->
+      <label for="sscGpa" class="gpa-group">SSC GPA:</label>
+      <input type="number" id="sscGpa" name="sscGpa" step="0.01" min="0" max="5" class="gpa-group">
+
+      <label for="hscGpa" class="gpa-group">HSC GPA:</label>
+      <input type="number" id="hscGpa" name="hscGpa" step="0.01" min="0" max="5" class="gpa-group">
+
+      <!-- Golden Checkboxes -->
+      <div id="goldenContainer" class="hidden">
+        <label><span>Golden SSC (5.00)</span><input type="checkbox" id="goldenSsc" /></label>
+        <label><span>Golden HSC (5.00)</span><input type="checkbox" id="goldenHsc" /></label>
+      </div>
+
+      <!-- Diploma CGPA -->
+      <div id="diplomaContainer" class="hidden">
+        <label for="diplomaCgpa">Diploma CGPA (Out of 4.00):</label>
+        <input type="number" id="diplomaCgpa" name="diplomaCgpa" step="0.01" min="0" max="4">
+      </div>
+
+      <!-- A/O Level Grades -->
+      <div id="olevelContainer" class="hidden">
+        <h3>O Level Grades:</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px;">
+          <select class="olevel-grade" required style="flex: 1; min-width: 50px;">
+            <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option>
+          </select>
+          <select class="olevel-grade" required style="flex: 1; min-width: 50px;">
+            <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option>
+          </select>
+          <select class="olevel-grade" required style="flex: 1; min-width: 50px;">
+            <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option>
+          </select>
+          <select class="olevel-grade" required style="flex: 1; min-width: 50px;">
+            <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option>
+          </select>
+          <select class="olevel-grade" required style="flex: 1; min-width: 50px;">
+            <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option>
+          </select>
+        </div>
+
+        <h3>A Level Grades:</h3>
+        <div style="display: flex; gap: 8px;">
+          <select class="alevel-grade" required style="flex: 1; min-width: 50px;">
+            <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option>
+          </select>
+          <select class="alevel-grade" required style="flex: 1; min-width: 50px;">
+            <option>A</option><option>B</option><option>C</option><option>D</option><option>E</option>
+          </select>
+        </div>
+      </div>
+
+
+      <!-- Gender -->
+      <label>Gender:</label>
+      <div class="option-group">
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male">Male</label>
+
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+      </div>
+
+      <!-- Department -->
+      <label for="department">Select Department:</label>
+      <select id="department" required></select>
+
+      <button type="submit">Calculate Fee</button>
+    </form>
+  </section>
+
+  <section id="result" class="hidden">
+    <h2>🎓 Your Fee Breakdown</h2>
+    <div class="result-card"></div>
+  </section>
+
+  <footer>
+    &copy; 2025 Md. Naimur Rahman Jisan | CSE | SUB
+    <br>
+    <button onclick="accessAdmin()" id="adminBtn" title="Admin Access"> ⚙️ </button>
+  </footer>
+
+  <script>
+    function accessAdmin() {
+      const pass = prompt("Enter Admin Password:");
+      if (pass === "admin123") {
+        window.location.href = "/admin";
+      } else if (pass !== null) {
+        alert("Access Denied");
+      }
+    }
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>

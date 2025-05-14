@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel | Tuition Config</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 40px 20px;
+      color: #333;
+    }
+
+    .admin-container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h2, h3 {
+      color: #007bff;
+      margin-top: 20px;
+    }
+
+    label {
+      font-weight: 600;
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, select, button, textarea {
+      width: 100%;
+      margin-top: 6px;
+      margin-bottom: 18px;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #198754;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #146c43;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.85rem;
+      margin-top: 30px;
+      color: #777;
+    }
+
+    .rule-block {
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .rule-block textarea {
+      height: 80px;
+      font-family: monospace;
+    }
+
+    .rule-block button {
+      margin-top: 5px;
+      background: #dc3545;
+    }
+
+    .rule-block button:hover {
+      background: #a71d2a;
+    }
+
+    .small-btn {
+      width: auto;
+      margin: 10px 0;
+      background-color: #ffc107;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="admin-container">
+    <h2>🎓 Admin Panel: Tuition + Waiver Configuration</h2>
+
+    <label for="groupType">🎓 Admission Type:</label>
+    <select id="groupType">
+      <option value="nationalDepartments">Undergraduate (National Curriculum)</option>
+      <option value="diplomaDepartments">Undergraduate (Diploma Holder)</option>
+    </select>
+
+    <label for="department">🏛️ Department:</label>
+    <select id="department"></select>
+
+    <label for="totalCredit">📚 Total Credit:</label>
+    <input type="number" id="totalCredit" />
+
+    <label for="costPerCredit">💵 Cost Per Credit:</label>
+    <input type="number" id="costPerCredit" />
+
+    <label for="flatWeiver">🏅 Flat Waiver (e.g., 0.15 = 15%):</label>
+    <input type="number" step="0.01" id="flatWeiver" />
+
+    <label for="semesters">📆 Number of Semesters:</label>
+    <input type="number" id="semesters" />
+
+    <label for="durationYears">📅 Program Duration (Years):</label>
+    <input type="number" id="durationYears" step="0.1" />
+
+    <label for="regPerSem">📝 Registration Fee / Semester:</label>
+    <input type="number" id="regPerSem" />
+
+    <label for="devPerSem">🛠️ Development Fee / Semester:</label>
+    <input type="number" id="devPerSem" />
+
+    <label for="labPerSem">🔬 Lab Fee / Semester:</label>
+    <input type="number" id="labPerSem" />
+
+    <h3>Waiver Rules</h3>
+    <label for="waiverType">📘 Waiver Type:</label>
+    <select id="waiverType">
+      <option value="national">National</option>
+      <option value="diploma">Diploma</option>
+      <option value="olevel">A/O Level</option>
+    </select>
+
+    <div id="waiverRulesContainer"></div>
+    <button class="small-btn" onclick="addRule()">➕ Add Waiver Rule</button>
+
+    <label for="password">🔐 Admin Password:</label>
+    <input type="password" id="password" placeholder="Enter admin password" />
+
+    <button onclick="save()">💾 Save Configuration</button>
+    <button onclick="location.href='/'" style="background-color: #6c757d; font-size: 0.85rem; padding: 8px;">← Back to Home</button>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 Md. Naimur Rahman Jisan | State University of Bangladesh
+  </div>
+
+  <script>
+    let config = {};
+    let currentGroup = "nationalDepartments";
+    let currentDept = "cse";
+
+    async function loadConfig() {
+      const res = await fetch("/config");
+      config = await res.json();
+      loadDepartments();
+    }
+
+    function loadDepartments() {
+      const group = document.getElementById("groupType").value;
+      currentGroup = group;
+      const deptSelect = document.getElementById("department");
+      deptSelect.innerHTML = "";
+      for (const d in config[group]) {
+        const opt = document.createElement("option");
+        opt.value = d;
+        opt.textContent = d.toUpperCase();
+        deptSelect.appendChild(opt);
+      }
+      deptSelect.onchange = fillForm;
+      fillForm();
+    }
+
+    function fillForm() {
+      const dept = document.getElementById("department").value;
+      currentDept = dept;
+      const d = config[currentGroup][dept];
+      ["totalCredit", "costPerCredit", "flatWeiver", "semesters", "durationYears", "regPerSem", "devPerSem", "labPerSem"]
+        .forEach(id => document.getElementById(id).value = d[id]);
+      loadWaiverRules();
+    }
+
+    function loadWaiverRules() {
+      const type = document.getElementById("waiverType").value;
+      const container = document.getElementById("waiverRulesContainer");
+      const rules = config[currentGroup][currentDept].waiverRules?.[type] || [];
+      container.innerHTML = "";
+      rules.forEach((rule, i) => {
+        const div = document.createElement("div");
+        div.className = "rule-block";
+
+        const textarea = document.createElement("textarea");
+        textarea.value = JSON.stringify(rule, null, 2);
+        textarea.dataset.index = i;
+        div.appendChild(textarea);
+
+        const del = document.createElement("button");
+        del.textContent = "🗑 Delete";
+        del.onclick = () => {
+          rules.splice(i, 1);
+          loadWaiverRules();
+        };
+        div.appendChild(del);
+        container.appendChild(div);
+      });
+    }
+
+    function addRule() {
+      const type = document.getElementById("waiverType").value;
+      const dept = config[currentGroup][currentDept];
+      if (!dept.waiverRules) dept.waiverRules = {};
+      if (!dept.waiverRules[type]) dept.waiverRules[type] = [];
+      dept.waiverRules[type].push({ waiver: 0 });
+      loadWaiverRules();
+    }
+
+    async function save() {
+      const d = config[currentGroup][currentDept];
+      ["totalCredit", "costPerCredit", "flatWeiver", "semesters", "durationYears", "regPerSem", "devPerSem", "labPerSem"]
+        .forEach(id => d[id] = parseFloat(document.getElementById(id).value));
+
+      const waiverType = document.getElementById("waiverType").value;
+      const container = document.getElementById("waiverRulesContainer");
+      const inputs = container.querySelectorAll("textarea");
+      d.waiverRules[waiverType] = Array.from(inputs).map(input => JSON.parse(input.value));
+
+      const res = await fetch("/config", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password: document.getElementById("password").value, config })
+      });
+
+      const msg = await res.text();
+      alert(msg);
+    }
+
+    document.getElementById("groupType").addEventListener("change", loadDepartments);
+    document.getElementById("waiverType").addEventListener("change", loadWaiverRules);
+
+    loadConfig();
+  </script>
+</body>
+</html>

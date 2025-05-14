@@ -1,0 +1,259 @@
+{
+  "nationalDepartments": {
+    "architecture": {
+      "totalCredit": 180,
+      "costPerCredit": 3500,
+      "flatWeiver": 0.1,
+      "semesters": 12,
+      "durationYears": 5,
+      "regPerSem": 15000,
+      "devPerSem": 6000,
+      "labPerSem": 0,
+      "waiverRules": {
+        "national": [
+          {
+            "minHsc": 5,
+            "minSsc": 5,
+            "goldenHsc": true,
+            "goldenSsc": true,
+            "waiver": 0.75
+          },
+          {
+            "minHsc": 4.8,
+            "maxHsc": 4.99,
+            "waiver": 0.68
+          }
+        ],
+        "olevel": [
+          {
+            "olevelAs": 5,
+            "alevelAs": 2,
+            "waiver": 0.5
+          }
+        ]
+      }
+    },
+    "bba": {
+      "totalCredit": 130,
+      "costPerCredit": 3250,
+      "flatWeiver": 0.2,
+      "semesters": 12,
+      "durationYears": 4,
+      "regPerSem": 10000,
+      "devPerSem": 4000,
+      "labPerSem": 0,
+      "waiverRules": {
+        "national": [
+          {
+            "minHsc": 4.8,
+            "waiver": 0.3
+          }
+        ],
+        "olevel": [
+          {
+            "olevelAs": 4,
+            "waiver": 0.25
+          }
+        ]
+      }
+    },
+    "cse": {
+      "totalCredit": 140,
+      "costPerCredit": 3500,
+      "flatWeiver": 0.15,
+      "semesters": 12,
+      "durationYears": 4,
+      "regPerSem": 10000,
+      "devPerSem": 4000,
+      "labPerSem": 3500,
+      "waiverRules": {
+        "national": [
+          {
+            "minHsc": 5,
+            "goldenHsc": true,
+            "waiver": 0.65
+          },
+          {
+            "minHsc": 4.5,
+            "waiver": 0.25
+          },
+          {
+            "minHsc": 4.7,
+            "waiver": 0.69
+          }
+        ],
+        "olevel": [
+          {
+            "olevelAs": 5,
+            "alevelAs": 2,
+            "waiver": 0.5
+          },
+          {
+            "olevelAs": 4,
+            "waiver": 0.25
+          }
+        ]
+      }
+    },
+    "english": {
+      "totalCredit": 130,
+      "costPerCredit": 2750,
+      "flatWeiver": 0.15,
+      "semesters": 12,
+      "durationYears": 4,
+      "regPerSem": 10000,
+      "devPerSem": 4000,
+      "labPerSem": 0,
+      "waiverRules": {
+        "national": [
+          {
+            "minHsc": 4.5,
+            "waiver": 0.2
+          }
+        ]
+      }
+    },
+    "fens": {
+      "totalCredit": 145,
+      "costPerCredit": 2750,
+      "flatWeiver": 0.15,
+      "semesters": 12,
+      "durationYears": 4,
+      "regPerSem": 10000,
+      "devPerSem": 4000,
+      "labPerSem": 3500,
+      "waiverRules": {
+        "national": [
+          {
+            "minHsc": 4.8,
+            "waiver": 0.3
+          }
+        ],
+        "olevel": [
+          {
+            "olevelAs": 4,
+            "waiver": 0.25
+          }
+        ]
+      }
+    },
+    "jcms": {
+      "totalCredit": 140,
+      "costPerCredit": 2500,
+      "flatWeiver": 0.25,
+      "semesters": 12,
+      "durationYears": 4,
+      "regPerSem": 10000,
+      "devPerSem": 4000,
+      "labPerSem": 3500
+    },
+    "law": {
+      "totalCredit": 140,
+      "costPerCredit": 3300,
+      "flatWeiver": 0.1,
+      "semesters": 8,
+      "durationYears": 4,
+      "regPerSem": 15000,
+      "devPerSem": 6000,
+      "labPerSem": 0
+    },
+    "pharmacy": {
+      "totalCredit": 164,
+      "costPerCredit": 4200,
+      "flatWeiver": 0.15,
+      "semesters": 8,
+      "durationYears": 4,
+      "regPerSem": 15000,
+      "devPerSem": 6000,
+      "labPerSem": 7000,
+      "waiverRules": {
+        "national": [
+          {
+            "minHsc": 5,
+            "minSsc": 5,
+            "waiver": 0.5
+          },
+          {
+            "minHsc": 4.5,
+            "waiver": 0.2
+          }
+        ],
+        "olevel": [
+          {
+            "olevelAs": 5,
+            "alevelBs": 2,
+            "waiver": 0.4
+          }
+        ]
+      }
+    }
+  },
+  "diplomaDepartments": {
+    "architecture": {
+      "totalCredit": 190,
+      "costPerCredit": 3500,
+      "flatWeiver": 0.1,
+      "semesters": 10,
+      "durationYears": 5,
+      "regPerSem": 15000,
+      "devPerSem": 6000,
+      "labPerSem": 0,
+      "waiverRules": {
+        "diploma": [
+          {
+            "minCgpa": 3.8,
+            "waiver": 0.3
+          },
+          {
+            "minCgpa": 3.5,
+            "waiver": 0.2
+          }
+        ]
+      }
+    },
+    "cse": {
+      "totalCredit": 140,
+      "costPerCredit": 3500,
+      "flatWeiver": 0.15,
+      "semesters": 12,
+      "durationYears": 4,
+      "regPerSem": 10000,
+      "devPerSem": 4000,
+      "labPerSem": 3500,
+      "waiverRules": {
+        "diploma": [
+          {
+            "minCgpa": 3.8,
+            "waiver": 0.3
+          },
+          {
+            "minCgpa": 3.5,
+            "waiver": 0.2
+          },
+          {
+            "minCgpa": 3,
+            "waiver": 0.1
+          }
+        ]
+      }
+    },
+    "fens": {
+      "totalCredit": 125,
+      "costPerCredit": 2750,
+      "flatWeiver": 0.15,
+      "semesters": 11,
+      "durationYears": 3.5,
+      "regPerSem": 10000,
+      "devPerSem": 4000,
+      "labPerSem": 3500,
+      "waiverRules": {
+        "diploma": [
+          {
+            "minCgpa": 3.7,
+            "waiver": 0.25
+          }
+        ]
+      }
+    }
+  }
+}
