@@ -5,7 +5,7 @@ const path = require("path");
 
 const app = express();
 const port = 3000;
-const PASSWORD = "sub@6323030"; // 🔐 Change this to your secure password
+const PASSWORD = "sub@123admin"; // 🔐 Change this to your secure password
 
 // Serve files from the public folder
 app.use(express.static("public"));
