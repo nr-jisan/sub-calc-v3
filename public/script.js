@@ -262,7 +262,7 @@ if (admissionType === "diploma") {
     <p><strong>Registration Fees (${cfg.durationYears} year):<br></strong> ${(cfg.regPerSem * cfg.semesters).toLocaleString()} BDT</p>
     <p><strong>Development Fees (${cfg.durationYears} year):<br></strong> ${(cfg.devPerSem * cfg.semesters).toLocaleString()} BDT</p>
     <p><strong>Lab Fees(${cfg.durationYears} year):</strong><br> ${(cfg.labPerSem * cfg.semesters).toLocaleString()} BDT</p>
-    <p><strong>Base Tuition Fees (${cfg.durationYears} year):</strong><br> ${cfg.baseTuition.toLocaleString()} BDT</p>
+    <p><strong>Tuition Fees After Total Waiver (${cfg.durationYears} year):</strong><br> ${Math.round(tuitionAfterWaiver).toLocaleString()} BDT</p>
     <hr>
     <p><strong>Total Cost After Waiver (${cfg.durationYears} year):</strong><br><h1 style="color:green;">${totalCostAfterWaiver.toLocaleString()} BDT</h1></p>
   </div>
